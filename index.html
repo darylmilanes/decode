@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Decode · Professional Utilities</title>
   
+  <!-- Browser Tab Icon (Favicon) -->
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="shortcut icon" type="image/png" href="icon-192.png">
+
   <!-- PWA Manifest & Icons -->
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-192.png">
@@ -114,6 +118,18 @@
     .font-mono-nums {
       font-feature-settings: "tnum";
       font-variant-numeric: tabular-nums;
+    }
+
+    /* Safe Area Utilities (Notch & Home Bar Support) */
+    .pt-safe {
+      padding-top: env(safe-area-inset-top);
+    }
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    /* Add extra spacing for notched phones so content isn't flush against the notch */
+    .pt-safe-plus {
+      padding-top: calc(env(safe-area-inset-top) + 20px);
     }
   </style>
 </head>
@@ -478,7 +494,7 @@
       };
 
       return (
-        <div className="animate-enter flex flex-col space-y-5 pt-6 pb-8">
+        <div className="animate-enter flex flex-col space-y-5 pb-8">
            <div className="text-center pb-2">
             <h1 className="text-xl font-bold tracking-tight text-slate-800">Packet</h1>
             <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">Link Shortener</p>
@@ -624,7 +640,7 @@
       };
 
       return (
-        <div className="animate-enter space-y-5 pt-6 pb-8">
+        <div className="animate-enter space-y-5 pb-8">
           <div className="text-center pb-2">
             <h1 className="text-xl font-bold tracking-tight text-slate-800">Settings</h1>
             <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase">System Config</p>
@@ -657,7 +673,7 @@
             </div>
             
             <div className="p-6 bg-slate-50">
-               <h3 className="font-bold text-slate-900 mb-4 text-sm">About Decode</h3>
+               <h3 className="font-bold text-slate-900 mb-4 text-sm">Application</h3>
                <div className="space-y-3">
                  <div className="flex justify-between items-center text-xs p-3 bg-white rounded-lg shadow-sm border border-slate-100">
                    <span className="text-slate-500 font-medium">Build Version</span>
@@ -685,7 +701,7 @@
       return (
         <div className="h-full w-full flex flex-col relative">
           
-          <main className="flex-1 overflow-y-auto overflow-x-hidden no-scrollbar w-full px-4 pb-24">
+          <main className="flex-1 overflow-y-auto overflow-x-hidden no-scrollbar w-full px-4 pb-24 pt-safe-plus">
             <div className="max-w-md mx-auto">
               {activeTab === 'pixelate' && <PixelateView settings={settings} />}
               {activeTab === 'packet' && <PacketView setTab={setActiveTab} />}
