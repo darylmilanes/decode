@@ -1,6 +1,6 @@
 {
-  "name": "PULSE Utilities",
-  "short_name": "PULSE",
+  "name": "Decode Utilities",
+  "short_name": "Decode",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#fafeff",
